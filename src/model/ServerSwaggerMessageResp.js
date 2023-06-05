@@ -11,8 +11,8 @@
  *
  */
 
-import ApiClient from '../ApiClient';
-import ServerSwaggerMessageRespMessagesInner from './ServerSwaggerMessageRespMessagesInner';
+import ApiClient from "../ApiClient";
+import ServerSwaggerMessageRespMessagesInner from "./ServerSwaggerMessageRespMessagesInner";
 
 /**
  * The ServerSwaggerMessageResp model module.
@@ -20,75 +20,69 @@ import ServerSwaggerMessageRespMessagesInner from './ServerSwaggerMessageRespMes
  * @version 0.1.0
  */
 class ServerSwaggerMessageResp {
-    /**
-     * Constructs a new <code>ServerSwaggerMessageResp</code>.
-     * @alias module:model/ServerSwaggerMessageResp
-     */
-    constructor() { 
-        
-        ServerSwaggerMessageResp.initialize(this);
+  /**
+   * Constructs a new <code>ServerSwaggerMessageResp</code>.
+   * @alias module:model/ServerSwaggerMessageResp
+   */
+  constructor() {
+    ServerSwaggerMessageResp.initialize(this);
+  }
+
+  /**
+   * Initializes the fields of this object.
+   * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+   * Only for internal use.
+   */
+  static initialize(obj) {}
+
+  /**
+   * Constructs a <code>ServerSwaggerMessageResp</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/ServerSwaggerMessageResp} obj Optional instance to populate.
+   * @return {module:model/ServerSwaggerMessageResp} The populated <code>ServerSwaggerMessageResp</code> instance.
+   */
+  static constructFromObject(data, obj) {
+    if (data) {
+      obj = obj || new ServerSwaggerMessageResp();
+
+      if (data.hasOwnProperty("messages")) {
+        obj["messages"] = ApiClient.convertToType(data["messages"], [
+          ServerSwaggerMessageRespMessagesInner,
+        ]);
+      }
+    }
+    return obj;
+  }
+
+  /**
+   * Validates the JSON data with respect to <code>ServerSwaggerMessageResp</code>.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServerSwaggerMessageResp</code>.
+   */
+  static validateJSON(data) {
+    if (data["messages"]) {
+      // data not null
+      // ensure the json data is an array
+      if (!Array.isArray(data["messages"])) {
+        throw new Error(
+          "Expected the field `messages` to be an array in the JSON data but got " +
+            data["messages"]
+        );
+      }
+      // validate the optional field `messages` (array)
+      for (const item of data["messages"]) {
+        ServerSwaggerMessageRespMessagesInner.validateJSON(item);
+      }
     }
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
-
-    /**
-     * Constructs a <code>ServerSwaggerMessageResp</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ServerSwaggerMessageResp} obj Optional instance to populate.
-     * @return {module:model/ServerSwaggerMessageResp} The populated <code>ServerSwaggerMessageResp</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new ServerSwaggerMessageResp();
-
-            if (data.hasOwnProperty('messages')) {
-                obj['messages'] = ApiClient.convertToType(data['messages'], [ServerSwaggerMessageRespMessagesInner]);
-            }
-        }
-        return obj;
-    }
-
-    /**
-     * Validates the JSON data with respect to <code>ServerSwaggerMessageResp</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServerSwaggerMessageResp</code>.
-     */
-    static validateJSON(data) {
-        if (data['messages']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['messages'])) {
-                throw new Error("Expected the field `messages` to be an array in the JSON data but got " + data['messages']);
-            }
-            // validate the optional field `messages` (array)
-            for (const item of data['messages']) {
-                ServerSwaggerMessageRespMessagesInner.validateJSON(item);
-            };
-        }
-
-        return true;
-    }
-
-
+    return true;
+  }
 }
-
-
 
 /**
  * @member {Array.<module:model/ServerSwaggerMessageRespMessagesInner>} messages
  */
-ServerSwaggerMessageResp.prototype['messages'] = undefined;
-
-
-
-
-
+ServerSwaggerMessageResp.prototype["messages"] = undefined;
 
 export default ServerSwaggerMessageResp;
-

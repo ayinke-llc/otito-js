@@ -26,24 +26,24 @@ npm run build
 Please follow the installation instructions and run the following JS code:
 
 ```javascript
-var OtitoApiDocumentation = require('@ayinke/otito-js');
+var OtitoApiDocumentation = require("@ayinke/otito-js");
 
 var defaultClient = OtitoApiDocumentation.ApiClient.instance;
 
-var ApiKeyAuth = defaultClient.authentications['ApiKeyAuth'];
-ApiKeyAuth.apiKey = "sk_YOUR_API_KEY"
-ApiKeyAuth.apiKeyPrefix['Authorization'] = "Bearer"
+var ApiKeyAuth = defaultClient.authentications["ApiKeyAuth"];
+ApiKeyAuth.apiKey = "sk_YOUR_API_KEY";
+ApiKeyAuth.apiKeyPrefix["Authorization"] = "Bearer";
 
-var api = new OtitoApiDocumentation.ApplicationApi()
-var message = new OtitoApiDocumentation.ServerCreateApplicationRequest("name of app");
-var callback = function(error, data, response) {
+var api = new OtitoApiDocumentation.ApplicationApi();
+var message = new OtitoApiDocumentation.ServerCreateApplicationRequest(
+  "name of app"
+);
+var callback = function (error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log("API called successfully. Returned data: " + data);
   }
 };
 api.applicationsPost(message, callback);
-
 ```
-

@@ -11,8 +11,8 @@
  *
  */
 
-import ApiClient from '../ApiClient';
-import ServerMRequest from './ServerMRequest';
+import ApiClient from "../ApiClient";
+import ServerMRequest from "./ServerMRequest";
 
 /**
  * The ServerMessageRequest model module.
@@ -20,75 +20,69 @@ import ServerMRequest from './ServerMRequest';
  * @version 0.1.0
  */
 class ServerMessageRequest {
-    /**
-     * Constructs a new <code>ServerMessageRequest</code>.
-     * @alias module:model/ServerMessageRequest
-     */
-    constructor() { 
-        
-        ServerMessageRequest.initialize(this);
+  /**
+   * Constructs a new <code>ServerMessageRequest</code>.
+   * @alias module:model/ServerMessageRequest
+   */
+  constructor() {
+    ServerMessageRequest.initialize(this);
+  }
+
+  /**
+   * Initializes the fields of this object.
+   * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+   * Only for internal use.
+   */
+  static initialize(obj) {}
+
+  /**
+   * Constructs a <code>ServerMessageRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/ServerMessageRequest} obj Optional instance to populate.
+   * @return {module:model/ServerMessageRequest} The populated <code>ServerMessageRequest</code> instance.
+   */
+  static constructFromObject(data, obj) {
+    if (data) {
+      obj = obj || new ServerMessageRequest();
+
+      if (data.hasOwnProperty("messages")) {
+        obj["messages"] = ApiClient.convertToType(data["messages"], [
+          ServerMRequest,
+        ]);
+      }
+    }
+    return obj;
+  }
+
+  /**
+   * Validates the JSON data with respect to <code>ServerMessageRequest</code>.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServerMessageRequest</code>.
+   */
+  static validateJSON(data) {
+    if (data["messages"]) {
+      // data not null
+      // ensure the json data is an array
+      if (!Array.isArray(data["messages"])) {
+        throw new Error(
+          "Expected the field `messages` to be an array in the JSON data but got " +
+            data["messages"]
+        );
+      }
+      // validate the optional field `messages` (array)
+      for (const item of data["messages"]) {
+        ServerMRequest.validateJSON(item);
+      }
     }
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
-
-    /**
-     * Constructs a <code>ServerMessageRequest</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ServerMessageRequest} obj Optional instance to populate.
-     * @return {module:model/ServerMessageRequest} The populated <code>ServerMessageRequest</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new ServerMessageRequest();
-
-            if (data.hasOwnProperty('messages')) {
-                obj['messages'] = ApiClient.convertToType(data['messages'], [ServerMRequest]);
-            }
-        }
-        return obj;
-    }
-
-    /**
-     * Validates the JSON data with respect to <code>ServerMessageRequest</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServerMessageRequest</code>.
-     */
-    static validateJSON(data) {
-        if (data['messages']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['messages'])) {
-                throw new Error("Expected the field `messages` to be an array in the JSON data but got " + data['messages']);
-            }
-            // validate the optional field `messages` (array)
-            for (const item of data['messages']) {
-                ServerMRequest.validateJSON(item);
-            };
-        }
-
-        return true;
-    }
-
-
+    return true;
+  }
 }
-
-
 
 /**
  * @member {Array.<module:model/ServerMRequest>} messages
  */
-ServerMessageRequest.prototype['messages'] = undefined;
-
-
-
-
-
+ServerMessageRequest.prototype["messages"] = undefined;
 
 export default ServerMessageRequest;
-

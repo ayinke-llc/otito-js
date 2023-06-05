@@ -11,8 +11,8 @@
  *
  */
 
-import ApiClient from '../ApiClient';
-import ServerMessageHTTPDefinition from './ServerMessageHTTPDefinition';
+import ApiClient from "../ApiClient";
+import ServerMessageHTTPDefinition from "./ServerMessageHTTPDefinition";
 
 /**
  * The ServerSwaggerMessageRespMessagesInner model module.
@@ -20,198 +20,282 @@ import ServerMessageHTTPDefinition from './ServerMessageHTTPDefinition';
  * @version 0.1.0
  */
 class ServerSwaggerMessageRespMessagesInner {
-    /**
-     * Constructs a new <code>ServerSwaggerMessageRespMessagesInner</code>.
-     * @alias module:model/ServerSwaggerMessageRespMessagesInner
-     */
-    constructor() { 
-        
-        ServerSwaggerMessageRespMessagesInner.initialize(this);
+  /**
+   * Constructs a new <code>ServerSwaggerMessageRespMessagesInner</code>.
+   * @alias module:model/ServerSwaggerMessageRespMessagesInner
+   */
+  constructor() {
+    ServerSwaggerMessageRespMessagesInner.initialize(this);
+  }
+
+  /**
+   * Initializes the fields of this object.
+   * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+   * Only for internal use.
+   */
+  static initialize(obj) {}
+
+  /**
+   * Constructs a <code>ServerSwaggerMessageRespMessagesInner</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/ServerSwaggerMessageRespMessagesInner} obj Optional instance to populate.
+   * @return {module:model/ServerSwaggerMessageRespMessagesInner} The populated <code>ServerSwaggerMessageRespMessagesInner</code> instance.
+   */
+  static constructFromObject(data, obj) {
+    if (data) {
+      obj = obj || new ServerSwaggerMessageRespMessagesInner();
+
+      if (data.hasOwnProperty("application_id")) {
+        obj["application_id"] = ApiClient.convertToType(
+          data["application_id"],
+          "String"
+        );
+      }
+      if (data.hasOwnProperty("created_at")) {
+        obj["created_at"] = ApiClient.convertToType(
+          data["created_at"],
+          "String"
+        );
+      }
+      if (data.hasOwnProperty("id")) {
+        obj["id"] = ApiClient.convertToType(data["id"], "String");
+      }
+      if (data.hasOwnProperty("ip_address")) {
+        obj["ip_address"] = ApiClient.convertToType(
+          data["ip_address"],
+          "String"
+        );
+      }
+      if (data.hasOwnProperty("method")) {
+        obj["method"] = ApiClient.convertToType(data["method"], "String");
+      }
+      if (data.hasOwnProperty("organisation_id")) {
+        obj["organisation_id"] = ApiClient.convertToType(
+          data["organisation_id"],
+          "String"
+        );
+      }
+      if (data.hasOwnProperty("path")) {
+        obj["path"] = ApiClient.convertToType(data["path"], "String");
+      }
+      if (data.hasOwnProperty("reference")) {
+        obj["reference"] = ApiClient.convertToType(data["reference"], "String");
+      }
+      if (data.hasOwnProperty("request")) {
+        obj["request"] = ServerMessageHTTPDefinition.constructFromObject(
+          data["request"]
+        );
+      }
+      if (data.hasOwnProperty("response")) {
+        obj["response"] = ServerMessageHTTPDefinition.constructFromObject(
+          data["response"]
+        );
+      }
+      if (data.hasOwnProperty("status_code")) {
+        obj["status_code"] = ApiClient.convertToType(
+          data["status_code"],
+          "Number"
+        );
+      }
+      if (data.hasOwnProperty("updated_at")) {
+        obj["updated_at"] = ApiClient.convertToType(
+          data["updated_at"],
+          "String"
+        );
+      }
+    }
+    return obj;
+  }
+
+  /**
+   * Validates the JSON data with respect to <code>ServerSwaggerMessageRespMessagesInner</code>.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServerSwaggerMessageRespMessagesInner</code>.
+   */
+  static validateJSON(data) {
+    // ensure the json data is a string
+    if (
+      data["application_id"] &&
+      !(
+        typeof data["application_id"] === "string" ||
+        data["application_id"] instanceof String
+      )
+    ) {
+      throw new Error(
+        "Expected the field `application_id` to be a primitive type in the JSON string but got " +
+          data["application_id"]
+      );
+    }
+    // ensure the json data is a string
+    if (
+      data["created_at"] &&
+      !(
+        typeof data["created_at"] === "string" ||
+        data["created_at"] instanceof String
+      )
+    ) {
+      throw new Error(
+        "Expected the field `created_at` to be a primitive type in the JSON string but got " +
+          data["created_at"]
+      );
+    }
+    // ensure the json data is a string
+    if (
+      data["id"] &&
+      !(typeof data["id"] === "string" || data["id"] instanceof String)
+    ) {
+      throw new Error(
+        "Expected the field `id` to be a primitive type in the JSON string but got " +
+          data["id"]
+      );
+    }
+    // ensure the json data is a string
+    if (
+      data["ip_address"] &&
+      !(
+        typeof data["ip_address"] === "string" ||
+        data["ip_address"] instanceof String
+      )
+    ) {
+      throw new Error(
+        "Expected the field `ip_address` to be a primitive type in the JSON string but got " +
+          data["ip_address"]
+      );
+    }
+    // ensure the json data is a string
+    if (
+      data["method"] &&
+      !(typeof data["method"] === "string" || data["method"] instanceof String)
+    ) {
+      throw new Error(
+        "Expected the field `method` to be a primitive type in the JSON string but got " +
+          data["method"]
+      );
+    }
+    // ensure the json data is a string
+    if (
+      data["organisation_id"] &&
+      !(
+        typeof data["organisation_id"] === "string" ||
+        data["organisation_id"] instanceof String
+      )
+    ) {
+      throw new Error(
+        "Expected the field `organisation_id` to be a primitive type in the JSON string but got " +
+          data["organisation_id"]
+      );
+    }
+    // ensure the json data is a string
+    if (
+      data["path"] &&
+      !(typeof data["path"] === "string" || data["path"] instanceof String)
+    ) {
+      throw new Error(
+        "Expected the field `path` to be a primitive type in the JSON string but got " +
+          data["path"]
+      );
+    }
+    // ensure the json data is a string
+    if (
+      data["reference"] &&
+      !(
+        typeof data["reference"] === "string" ||
+        data["reference"] instanceof String
+      )
+    ) {
+      throw new Error(
+        "Expected the field `reference` to be a primitive type in the JSON string but got " +
+          data["reference"]
+      );
+    }
+    // validate the optional field `request`
+    if (data["request"]) {
+      // data not null
+      ServerMessageHTTPDefinition.validateJSON(data["request"]);
+    }
+    // validate the optional field `response`
+    if (data["response"]) {
+      // data not null
+      ServerMessageHTTPDefinition.validateJSON(data["response"]);
+    }
+    // ensure the json data is a string
+    if (
+      data["updated_at"] &&
+      !(
+        typeof data["updated_at"] === "string" ||
+        data["updated_at"] instanceof String
+      )
+    ) {
+      throw new Error(
+        "Expected the field `updated_at` to be a primitive type in the JSON string but got " +
+          data["updated_at"]
+      );
     }
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
-
-    /**
-     * Constructs a <code>ServerSwaggerMessageRespMessagesInner</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ServerSwaggerMessageRespMessagesInner} obj Optional instance to populate.
-     * @return {module:model/ServerSwaggerMessageRespMessagesInner} The populated <code>ServerSwaggerMessageRespMessagesInner</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new ServerSwaggerMessageRespMessagesInner();
-
-            if (data.hasOwnProperty('application_id')) {
-                obj['application_id'] = ApiClient.convertToType(data['application_id'], 'String');
-            }
-            if (data.hasOwnProperty('created_at')) {
-                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'String');
-            }
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
-            }
-            if (data.hasOwnProperty('ip_address')) {
-                obj['ip_address'] = ApiClient.convertToType(data['ip_address'], 'String');
-            }
-            if (data.hasOwnProperty('method')) {
-                obj['method'] = ApiClient.convertToType(data['method'], 'String');
-            }
-            if (data.hasOwnProperty('organisation_id')) {
-                obj['organisation_id'] = ApiClient.convertToType(data['organisation_id'], 'String');
-            }
-            if (data.hasOwnProperty('path')) {
-                obj['path'] = ApiClient.convertToType(data['path'], 'String');
-            }
-            if (data.hasOwnProperty('reference')) {
-                obj['reference'] = ApiClient.convertToType(data['reference'], 'String');
-            }
-            if (data.hasOwnProperty('request')) {
-                obj['request'] = ServerMessageHTTPDefinition.constructFromObject(data['request']);
-            }
-            if (data.hasOwnProperty('response')) {
-                obj['response'] = ServerMessageHTTPDefinition.constructFromObject(data['response']);
-            }
-            if (data.hasOwnProperty('status_code')) {
-                obj['status_code'] = ApiClient.convertToType(data['status_code'], 'Number');
-            }
-            if (data.hasOwnProperty('updated_at')) {
-                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'String');
-            }
-        }
-        return obj;
-    }
-
-    /**
-     * Validates the JSON data with respect to <code>ServerSwaggerMessageRespMessagesInner</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServerSwaggerMessageRespMessagesInner</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['application_id'] && !(typeof data['application_id'] === 'string' || data['application_id'] instanceof String)) {
-            throw new Error("Expected the field `application_id` to be a primitive type in the JSON string but got " + data['application_id']);
-        }
-        // ensure the json data is a string
-        if (data['created_at'] && !(typeof data['created_at'] === 'string' || data['created_at'] instanceof String)) {
-            throw new Error("Expected the field `created_at` to be a primitive type in the JSON string but got " + data['created_at']);
-        }
-        // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
-        }
-        // ensure the json data is a string
-        if (data['ip_address'] && !(typeof data['ip_address'] === 'string' || data['ip_address'] instanceof String)) {
-            throw new Error("Expected the field `ip_address` to be a primitive type in the JSON string but got " + data['ip_address']);
-        }
-        // ensure the json data is a string
-        if (data['method'] && !(typeof data['method'] === 'string' || data['method'] instanceof String)) {
-            throw new Error("Expected the field `method` to be a primitive type in the JSON string but got " + data['method']);
-        }
-        // ensure the json data is a string
-        if (data['organisation_id'] && !(typeof data['organisation_id'] === 'string' || data['organisation_id'] instanceof String)) {
-            throw new Error("Expected the field `organisation_id` to be a primitive type in the JSON string but got " + data['organisation_id']);
-        }
-        // ensure the json data is a string
-        if (data['path'] && !(typeof data['path'] === 'string' || data['path'] instanceof String)) {
-            throw new Error("Expected the field `path` to be a primitive type in the JSON string but got " + data['path']);
-        }
-        // ensure the json data is a string
-        if (data['reference'] && !(typeof data['reference'] === 'string' || data['reference'] instanceof String)) {
-            throw new Error("Expected the field `reference` to be a primitive type in the JSON string but got " + data['reference']);
-        }
-        // validate the optional field `request`
-        if (data['request']) { // data not null
-          ServerMessageHTTPDefinition.validateJSON(data['request']);
-        }
-        // validate the optional field `response`
-        if (data['response']) { // data not null
-          ServerMessageHTTPDefinition.validateJSON(data['response']);
-        }
-        // ensure the json data is a string
-        if (data['updated_at'] && !(typeof data['updated_at'] === 'string' || data['updated_at'] instanceof String)) {
-            throw new Error("Expected the field `updated_at` to be a primitive type in the JSON string but got " + data['updated_at']);
-        }
-
-        return true;
-    }
-
-
+    return true;
+  }
 }
-
-
 
 /**
  * @member {String} application_id
  */
-ServerSwaggerMessageRespMessagesInner.prototype['application_id'] = undefined;
+ServerSwaggerMessageRespMessagesInner.prototype["application_id"] = undefined;
 
 /**
  * @member {String} created_at
  */
-ServerSwaggerMessageRespMessagesInner.prototype['created_at'] = undefined;
+ServerSwaggerMessageRespMessagesInner.prototype["created_at"] = undefined;
 
 /**
  * @member {String} id
  */
-ServerSwaggerMessageRespMessagesInner.prototype['id'] = undefined;
+ServerSwaggerMessageRespMessagesInner.prototype["id"] = undefined;
 
 /**
  * This is for the request
  * @member {String} ip_address
  */
-ServerSwaggerMessageRespMessagesInner.prototype['ip_address'] = undefined;
+ServerSwaggerMessageRespMessagesInner.prototype["ip_address"] = undefined;
 
 /**
  * @member {String} method
  */
-ServerSwaggerMessageRespMessagesInner.prototype['method'] = undefined;
+ServerSwaggerMessageRespMessagesInner.prototype["method"] = undefined;
 
 /**
  * @member {String} organisation_id
  */
-ServerSwaggerMessageRespMessagesInner.prototype['organisation_id'] = undefined;
+ServerSwaggerMessageRespMessagesInner.prototype["organisation_id"] = undefined;
 
 /**
  * @member {String} path
  */
-ServerSwaggerMessageRespMessagesInner.prototype['path'] = undefined;
+ServerSwaggerMessageRespMessagesInner.prototype["path"] = undefined;
 
 /**
  * @member {String} reference
  */
-ServerSwaggerMessageRespMessagesInner.prototype['reference'] = undefined;
+ServerSwaggerMessageRespMessagesInner.prototype["reference"] = undefined;
 
 /**
  * @member {module:model/ServerMessageHTTPDefinition} request
  */
-ServerSwaggerMessageRespMessagesInner.prototype['request'] = undefined;
+ServerSwaggerMessageRespMessagesInner.prototype["request"] = undefined;
 
 /**
  * @member {module:model/ServerMessageHTTPDefinition} response
  */
-ServerSwaggerMessageRespMessagesInner.prototype['response'] = undefined;
+ServerSwaggerMessageRespMessagesInner.prototype["response"] = undefined;
 
 /**
  * @member {Number} status_code
  */
-ServerSwaggerMessageRespMessagesInner.prototype['status_code'] = undefined;
+ServerSwaggerMessageRespMessagesInner.prototype["status_code"] = undefined;
 
 /**
  * @member {String} updated_at
  */
-ServerSwaggerMessageRespMessagesInner.prototype['updated_at'] = undefined;
-
-
-
-
-
+ServerSwaggerMessageRespMessagesInner.prototype["updated_at"] = undefined;
 
 export default ServerSwaggerMessageRespMessagesInner;
-

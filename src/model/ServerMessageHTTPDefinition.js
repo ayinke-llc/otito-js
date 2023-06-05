@@ -11,7 +11,7 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+import ApiClient from "../ApiClient";
 
 /**
  * The ServerMessageHTTPDefinition model module.
@@ -19,79 +19,75 @@ import ApiClient from '../ApiClient';
  * @version 0.1.0
  */
 class ServerMessageHTTPDefinition {
-    /**
-     * Constructs a new <code>ServerMessageHTTPDefinition</code>.
-     * @alias module:model/ServerMessageHTTPDefinition
-     */
-    constructor() { 
-        
-        ServerMessageHTTPDefinition.initialize(this);
+  /**
+   * Constructs a new <code>ServerMessageHTTPDefinition</code>.
+   * @alias module:model/ServerMessageHTTPDefinition
+   */
+  constructor() {
+    ServerMessageHTTPDefinition.initialize(this);
+  }
+
+  /**
+   * Initializes the fields of this object.
+   * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+   * Only for internal use.
+   */
+  static initialize(obj) {}
+
+  /**
+   * Constructs a <code>ServerMessageHTTPDefinition</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/ServerMessageHTTPDefinition} obj Optional instance to populate.
+   * @return {module:model/ServerMessageHTTPDefinition} The populated <code>ServerMessageHTTPDefinition</code> instance.
+   */
+  static constructFromObject(data, obj) {
+    if (data) {
+      obj = obj || new ServerMessageHTTPDefinition();
+
+      if (data.hasOwnProperty("body")) {
+        obj["body"] = ApiClient.convertToType(data["body"], "String");
+      }
+      if (data.hasOwnProperty("header")) {
+        obj["header"] = ApiClient.convertToType(data["header"], {
+          String: ["String"],
+        });
+      }
+    }
+    return obj;
+  }
+
+  /**
+   * Validates the JSON data with respect to <code>ServerMessageHTTPDefinition</code>.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServerMessageHTTPDefinition</code>.
+   */
+  static validateJSON(data) {
+    // ensure the json data is a string
+    if (
+      data["body"] &&
+      !(typeof data["body"] === "string" || data["body"] instanceof String)
+    ) {
+      throw new Error(
+        "Expected the field `body` to be a primitive type in the JSON string but got " +
+          data["body"]
+      );
     }
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
-
-    /**
-     * Constructs a <code>ServerMessageHTTPDefinition</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ServerMessageHTTPDefinition} obj Optional instance to populate.
-     * @return {module:model/ServerMessageHTTPDefinition} The populated <code>ServerMessageHTTPDefinition</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new ServerMessageHTTPDefinition();
-
-            if (data.hasOwnProperty('body')) {
-                obj['body'] = ApiClient.convertToType(data['body'], 'String');
-            }
-            if (data.hasOwnProperty('header')) {
-                obj['header'] = ApiClient.convertToType(data['header'], {'String': ['String']});
-            }
-        }
-        return obj;
-    }
-
-    /**
-     * Validates the JSON data with respect to <code>ServerMessageHTTPDefinition</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServerMessageHTTPDefinition</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['body'] && !(typeof data['body'] === 'string' || data['body'] instanceof String)) {
-            throw new Error("Expected the field `body` to be a primitive type in the JSON string but got " + data['body']);
-        }
-
-        return true;
-    }
-
-
+    return true;
+  }
 }
-
-
 
 /**
  * The body of the request/response
  * @member {String} body
  */
-ServerMessageHTTPDefinition.prototype['body'] = undefined;
+ServerMessageHTTPDefinition.prototype["body"] = undefined;
 
 /**
  * The header of the request/response
  * @member {Object.<String, Array.<String>>} header
  */
-ServerMessageHTTPDefinition.prototype['header'] = undefined;
-
-
-
-
-
+ServerMessageHTTPDefinition.prototype["header"] = undefined;
 
 export default ServerMessageHTTPDefinition;
-

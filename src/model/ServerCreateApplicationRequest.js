@@ -11,7 +11,7 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+import ApiClient from "../ApiClient";
 
 /**
  * The ServerCreateApplicationRequest model module.
@@ -19,67 +19,75 @@ import ApiClient from '../ApiClient';
  * @version 0.1.0
  */
 class ServerCreateApplicationRequest {
-    /**
-     * Constructs a new <code>ServerCreateApplicationRequest</code>.
-     * @alias module:model/ServerCreateApplicationRequest
-     * @param name {String} 
-     */
-    constructor(name) { 
-        
-        ServerCreateApplicationRequest.initialize(this, name);
+  /**
+   * Constructs a new <code>ServerCreateApplicationRequest</code>.
+   * @alias module:model/ServerCreateApplicationRequest
+   * @param name {String}
+   */
+  constructor(name) {
+    ServerCreateApplicationRequest.initialize(this, name);
+  }
+
+  /**
+   * Initializes the fields of this object.
+   * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+   * Only for internal use.
+   */
+  static initialize(obj, name) {
+    obj["name"] = name;
+  }
+
+  /**
+   * Constructs a <code>ServerCreateApplicationRequest</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/ServerCreateApplicationRequest} obj Optional instance to populate.
+   * @return {module:model/ServerCreateApplicationRequest} The populated <code>ServerCreateApplicationRequest</code> instance.
+   */
+  static constructFromObject(data, obj) {
+    if (data) {
+      obj = obj || new ServerCreateApplicationRequest();
+
+      if (data.hasOwnProperty("metadata")) {
+        obj["metadata"] = ApiClient.convertToType(data["metadata"], Object);
+      }
+      if (data.hasOwnProperty("name")) {
+        obj["name"] = ApiClient.convertToType(data["name"], "String");
+      }
+    }
+    return obj;
+  }
+
+  /**
+   * Validates the JSON data with respect to <code>ServerCreateApplicationRequest</code>.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServerCreateApplicationRequest</code>.
+   */
+  static validateJSON(data) {
+    // check to make sure all required properties are present in the JSON string
+    for (const property of ServerCreateApplicationRequest.RequiredProperties) {
+      if (!data[property]) {
+        throw new Error(
+          "The required field `" +
+            property +
+            "` is not found in the JSON data: " +
+            JSON.stringify(data)
+        );
+      }
+    }
+    // ensure the json data is a string
+    if (
+      data["name"] &&
+      !(typeof data["name"] === "string" || data["name"] instanceof String)
+    ) {
+      throw new Error(
+        "Expected the field `name` to be a primitive type in the JSON string but got " +
+          data["name"]
+      );
     }
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj, name) { 
-        obj['name'] = name;
-    }
-
-    /**
-     * Constructs a <code>ServerCreateApplicationRequest</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ServerCreateApplicationRequest} obj Optional instance to populate.
-     * @return {module:model/ServerCreateApplicationRequest} The populated <code>ServerCreateApplicationRequest</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new ServerCreateApplicationRequest();
-
-            if (data.hasOwnProperty('metadata')) {
-                obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
-            }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
-        }
-        return obj;
-    }
-
-    /**
-     * Validates the JSON data with respect to <code>ServerCreateApplicationRequest</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServerCreateApplicationRequest</code>.
-     */
-    static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of ServerCreateApplicationRequest.RequiredProperties) {
-            if (!data[property]) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
-            }
-        }
-        // ensure the json data is a string
-        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
-            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
-        }
-
-        return true;
-    }
-
-
+    return true;
+  }
 }
 
 ServerCreateApplicationRequest.RequiredProperties = ["name"];
@@ -87,17 +95,11 @@ ServerCreateApplicationRequest.RequiredProperties = ["name"];
 /**
  * @member {Object} metadata
  */
-ServerCreateApplicationRequest.prototype['metadata'] = undefined;
+ServerCreateApplicationRequest.prototype["metadata"] = undefined;
 
 /**
  * @member {String} name
  */
-ServerCreateApplicationRequest.prototype['name'] = undefined;
-
-
-
-
-
+ServerCreateApplicationRequest.prototype["name"] = undefined;
 
 export default ServerCreateApplicationRequest;
-

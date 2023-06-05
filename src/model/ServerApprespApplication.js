@@ -11,7 +11,7 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+import ApiClient from "../ApiClient";
 
 /**
  * The ServerApprespApplication model module.
@@ -19,125 +19,164 @@ import ApiClient from '../ApiClient';
  * @version 0.1.0
  */
 class ServerApprespApplication {
-    /**
-     * Constructs a new <code>ServerApprespApplication</code>.
-     * @alias module:model/ServerApprespApplication
-     */
-    constructor() { 
-        
-        ServerApprespApplication.initialize(this);
+  /**
+   * Constructs a new <code>ServerApprespApplication</code>.
+   * @alias module:model/ServerApprespApplication
+   */
+  constructor() {
+    ServerApprespApplication.initialize(this);
+  }
+
+  /**
+   * Initializes the fields of this object.
+   * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+   * Only for internal use.
+   */
+  static initialize(obj) {}
+
+  /**
+   * Constructs a <code>ServerApprespApplication</code> from a plain JavaScript object, optionally creating a new instance.
+   * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @param {module:model/ServerApprespApplication} obj Optional instance to populate.
+   * @return {module:model/ServerApprespApplication} The populated <code>ServerApprespApplication</code> instance.
+   */
+  static constructFromObject(data, obj) {
+    if (data) {
+      obj = obj || new ServerApprespApplication();
+
+      if (data.hasOwnProperty("created_at")) {
+        obj["created_at"] = ApiClient.convertToType(
+          data["created_at"],
+          "String"
+        );
+      }
+      if (data.hasOwnProperty("metadata")) {
+        obj["metadata"] = ApiClient.convertToType(data["metadata"], Object);
+      }
+      if (data.hasOwnProperty("name")) {
+        obj["name"] = ApiClient.convertToType(data["name"], "String");
+      }
+      if (data.hasOwnProperty("organisation_id")) {
+        obj["organisation_id"] = ApiClient.convertToType(
+          data["organisation_id"],
+          "String"
+        );
+      }
+      if (data.hasOwnProperty("reference")) {
+        obj["reference"] = ApiClient.convertToType(data["reference"], "String");
+      }
+      if (data.hasOwnProperty("updated_at")) {
+        obj["updated_at"] = ApiClient.convertToType(
+          data["updated_at"],
+          "String"
+        );
+      }
+    }
+    return obj;
+  }
+
+  /**
+   * Validates the JSON data with respect to <code>ServerApprespApplication</code>.
+   * @param {Object} data The plain JavaScript object bearing properties of interest.
+   * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServerApprespApplication</code>.
+   */
+  static validateJSON(data) {
+    // ensure the json data is a string
+    if (
+      data["created_at"] &&
+      !(
+        typeof data["created_at"] === "string" ||
+        data["created_at"] instanceof String
+      )
+    ) {
+      throw new Error(
+        "Expected the field `created_at` to be a primitive type in the JSON string but got " +
+          data["created_at"]
+      );
+    }
+    // ensure the json data is a string
+    if (
+      data["name"] &&
+      !(typeof data["name"] === "string" || data["name"] instanceof String)
+    ) {
+      throw new Error(
+        "Expected the field `name` to be a primitive type in the JSON string but got " +
+          data["name"]
+      );
+    }
+    // ensure the json data is a string
+    if (
+      data["organisation_id"] &&
+      !(
+        typeof data["organisation_id"] === "string" ||
+        data["organisation_id"] instanceof String
+      )
+    ) {
+      throw new Error(
+        "Expected the field `organisation_id` to be a primitive type in the JSON string but got " +
+          data["organisation_id"]
+      );
+    }
+    // ensure the json data is a string
+    if (
+      data["reference"] &&
+      !(
+        typeof data["reference"] === "string" ||
+        data["reference"] instanceof String
+      )
+    ) {
+      throw new Error(
+        "Expected the field `reference` to be a primitive type in the JSON string but got " +
+          data["reference"]
+      );
+    }
+    // ensure the json data is a string
+    if (
+      data["updated_at"] &&
+      !(
+        typeof data["updated_at"] === "string" ||
+        data["updated_at"] instanceof String
+      )
+    ) {
+      throw new Error(
+        "Expected the field `updated_at` to be a primitive type in the JSON string but got " +
+          data["updated_at"]
+      );
     }
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
-
-    /**
-     * Constructs a <code>ServerApprespApplication</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ServerApprespApplication} obj Optional instance to populate.
-     * @return {module:model/ServerApprespApplication} The populated <code>ServerApprespApplication</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new ServerApprespApplication();
-
-            if (data.hasOwnProperty('created_at')) {
-                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'String');
-            }
-            if (data.hasOwnProperty('metadata')) {
-                obj['metadata'] = ApiClient.convertToType(data['metadata'], Object);
-            }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
-            if (data.hasOwnProperty('organisation_id')) {
-                obj['organisation_id'] = ApiClient.convertToType(data['organisation_id'], 'String');
-            }
-            if (data.hasOwnProperty('reference')) {
-                obj['reference'] = ApiClient.convertToType(data['reference'], 'String');
-            }
-            if (data.hasOwnProperty('updated_at')) {
-                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'String');
-            }
-        }
-        return obj;
-    }
-
-    /**
-     * Validates the JSON data with respect to <code>ServerApprespApplication</code>.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>ServerApprespApplication</code>.
-     */
-    static validateJSON(data) {
-        // ensure the json data is a string
-        if (data['created_at'] && !(typeof data['created_at'] === 'string' || data['created_at'] instanceof String)) {
-            throw new Error("Expected the field `created_at` to be a primitive type in the JSON string but got " + data['created_at']);
-        }
-        // ensure the json data is a string
-        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
-            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
-        }
-        // ensure the json data is a string
-        if (data['organisation_id'] && !(typeof data['organisation_id'] === 'string' || data['organisation_id'] instanceof String)) {
-            throw new Error("Expected the field `organisation_id` to be a primitive type in the JSON string but got " + data['organisation_id']);
-        }
-        // ensure the json data is a string
-        if (data['reference'] && !(typeof data['reference'] === 'string' || data['reference'] instanceof String)) {
-            throw new Error("Expected the field `reference` to be a primitive type in the JSON string but got " + data['reference']);
-        }
-        // ensure the json data is a string
-        if (data['updated_at'] && !(typeof data['updated_at'] === 'string' || data['updated_at'] instanceof String)) {
-            throw new Error("Expected the field `updated_at` to be a primitive type in the JSON string but got " + data['updated_at']);
-        }
-
-        return true;
-    }
-
-
+    return true;
+  }
 }
-
-
 
 /**
  * @member {String} created_at
  */
-ServerApprespApplication.prototype['created_at'] = undefined;
+ServerApprespApplication.prototype["created_at"] = undefined;
 
 /**
  * @member {Object} metadata
  */
-ServerApprespApplication.prototype['metadata'] = undefined;
+ServerApprespApplication.prototype["metadata"] = undefined;
 
 /**
  * @member {String} name
  */
-ServerApprespApplication.prototype['name'] = undefined;
+ServerApprespApplication.prototype["name"] = undefined;
 
 /**
  * @member {String} organisation_id
  */
-ServerApprespApplication.prototype['organisation_id'] = undefined;
+ServerApprespApplication.prototype["organisation_id"] = undefined;
 
 /**
  * @member {String} reference
  */
-ServerApprespApplication.prototype['reference'] = undefined;
+ServerApprespApplication.prototype["reference"] = undefined;
 
 /**
  * @member {String} updated_at
  */
-ServerApprespApplication.prototype['updated_at'] = undefined;
-
-
-
-
-
+ServerApprespApplication.prototype["updated_at"] = undefined;
 
 export default ServerApprespApplication;
-

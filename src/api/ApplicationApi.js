@@ -11,71 +11,74 @@
  *
  */
 
-
 import ApiClient from "../ApiClient";
-import ServerAPIError from '../model/ServerAPIError';
-import ServerAppresp from '../model/ServerAppresp';
-import ServerCreateApplicationRequest from '../model/ServerCreateApplicationRequest';
+import ServerAPIError from "../model/ServerAPIError";
+import ServerAppresp from "../model/ServerAppresp";
+import ServerCreateApplicationRequest from "../model/ServerCreateApplicationRequest";
 
 /**
-* Application service.
-* @module api/ApplicationApi
-* @version 0.1.0
-*/
+ * Application service.
+ * @module api/ApplicationApi
+ * @version 0.1.0
+ */
 export default class ApplicationApi {
+  /**
+   * Constructs a new ApplicationApi.
+   * @alias module:api/ApplicationApi
+   * @class
+   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+   * default to {@link module:ApiClient#instance} if unspecified.
+   */
+  constructor(apiClient) {
+    this.apiClient = apiClient || ApiClient.instance;
+  }
 
-    /**
-    * Constructs a new ApplicationApi. 
-    * @alias module:api/ApplicationApi
-    * @class
-    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-    * default to {@link module:ApiClient#instance} if unspecified.
-    */
-    constructor(apiClient) {
-        this.apiClient = apiClient || ApiClient.instance;
-    }
+  /**
+   * Callback function to receive the result of the applicationsPost operation.
+   * @callback module:api/ApplicationApi~applicationsPostCallback
+   * @param {String} error Error message, if any.
+   * @param {module:model/ServerAppresp} data The data returned by the service call.
+   * @param {String} response The complete HTTP response.
+   */
 
-
-    /**
-     * Callback function to receive the result of the applicationsPost operation.
-     * @callback module:api/ApplicationApi~applicationsPostCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ServerAppresp} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * create a new app
-     * @param {module:model/ServerCreateApplicationRequest} message Request body
-     * @param {module:api/ApplicationApi~applicationsPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ServerAppresp}
-     */
-    applicationsPost(message, callback) {
-      let postBody = message;
-      // verify the required parameter 'message' is set
-      if (message === undefined || message === null) {
-        throw new Error("Missing the required parameter 'message' when calling applicationsPost");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['ApiKeyAuth'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = ServerAppresp;
-      return this.apiClient.callApi(
-        '/applications', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+  /**
+   * create a new app
+   * @param {module:model/ServerCreateApplicationRequest} message Request body
+   * @param {module:api/ApplicationApi~applicationsPostCallback} callback The callback function, accepting three arguments: error, data, response
+   * data is of type: {@link module:model/ServerAppresp}
+   */
+  applicationsPost(message, callback) {
+    let postBody = message;
+    // verify the required parameter 'message' is set
+    if (message === undefined || message === null) {
+      throw new Error(
+        "Missing the required parameter 'message' when calling applicationsPost"
       );
     }
 
+    let pathParams = {};
+    let queryParams = {};
+    let headerParams = {};
+    let formParams = {};
 
+    let authNames = ["ApiKeyAuth"];
+    let contentTypes = ["application/json"];
+    let accepts = ["application/json"];
+    let returnType = ServerAppresp;
+    return this.apiClient.callApi(
+      "/applications",
+      "POST",
+      pathParams,
+      queryParams,
+      headerParams,
+      formParams,
+      postBody,
+      authNames,
+      contentTypes,
+      accepts,
+      returnType,
+      null,
+      callback
+    );
+  }
 }
